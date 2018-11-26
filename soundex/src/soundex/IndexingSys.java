@@ -30,19 +30,19 @@ package soundex;
 import java.util.*;
 // input one string
 // take first letter
-// 1 --- b, f, p, v 
-// 2 --- c,g,j,k,q,s,x,z 
-// 3 --- d, t 
-// 4 --- l 
-// 5 --- m, n 
-// 6 --- r 
+// 1 --- b, f, p, v
+// 2 --- c,g,j,k,q,s,x,z
+// 3 --- d, t
+// 4 --- l
+// 5 --- m, n
+// 6 --- r
 
 public class IndexingSys {
 	public static String indexRequest(String str) { //creating a function that takes the input and does the indexing outside of other code bc cleanliness
-		
+
 		char[] userIn = str.toUpperCase().toCharArray(); //taking string and making it a char array
 		char firstLet = userIn[0]; //store the first character
-		
+
 		for (int i = 0; i < userIn.length; i++) { //running through input
 			switch (userIn[i]) { //switch expression
             case 'B': //first set of cases
@@ -89,38 +89,21 @@ public class IndexingSys {
 	} //end of FOR loop
 		String userOut = "" + firstLet; //setting up the output
 		//case for when two letters with same code num are next to each other
-		for (int i = 1; i < userIn.length; i++) { 
-			if (userIn[i] != userIn[i - 1] && userIn[i] != '0') { 
+		for (int i = 1; i < userIn.length; i++) {
+			if (userIn[i] != userIn[i - 1] && userIn[i] != '0') {
 				userOut += userIn[i]; //only going to add the numbers that we need to the output
 			}
 		}
 		userOut = userOut + "0000"; //4 zeros in cases where the input does not have any code nums
-		return userOut.substring(0, 4); //returning a letter and 3 numbers		
+		return userOut.substring(0, 4); //returning a letter and 3 numbers
 	}
 	public static void main(String[] args) { //main code segment where we input things
 		Scanner kb = new Scanner(System.in); //setup for scanner
-		System.out.println("Single Word Lookup or Five Word Lookup?:(single/five)"); //can either do single or 5 line
-		String mode = kb.next().toLowerCase(); //can recognize capital or lowercase
-		if (mode.equals("five")) {
-			System.out.println("Start Entering Now, Hit Enter After Each Word");
-			String in1 = kb.next();
-			String in2 = kb.nextLine();
-			String in3 = kb.nextLine();
-			String in4 = kb.nextLine();
-			String in5 = kb.nextLine();
-			System.out.println("Words Recieved....Requesting Index");
-			System.out.println("Index Request Fufilled. Your Indexes Are As Follows: ");
-			System.out.println(in1 + IndexingSys.indexRequest(in1));
-			System.out.println(in2 + IndexingSys.indexRequest(in2));
-			System.out.println(in3 + IndexingSys.indexRequest(in3));
-			System.out.println(in4 + IndexingSys.indexRequest(in4));
-			System.out.println(in5 + IndexingSys.indexRequest(in5));
-		}
-		else {
-			String in1 = kb.next();
-			System.out.println(in1 + IndexingSys.indexRequest(in1));
-		}
+		System.out.println("Enter Word To Find Its Index: ")
+		String in1 = kb.next();
+		System.out.println("Your input: ("in1 + ")" + "Index Returned: " + fwreIndexingSys.indexRequest(in1));
 		
+
 		kb.close();
 	}
 }
