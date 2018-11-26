@@ -1,3 +1,4 @@
+
 //  ---_____-------------------------------_------------------
 //  --/-____|-----------------------------|-|-----------------
 //  -|-(___-----___----_---_---_-__-----__|-|---___--__--__---
@@ -99,10 +100,10 @@ public class IndexingSys {
 	}
 	public static void main(String[] args) { //main code segment where we input things
 		Scanner kb = new Scanner(System.in); //setup for scanner
-		System.out.println("Enter Word To Find Its Index: ")
+		System.out.println("Enter Word To Find Its Index: ");
 		String in1 = kb.next();
-		System.out.println("Your input: ("in1 + ")" + "Index Returned: " + fwreIndexingSys.indexRequest(in1));
-		
+		System.out.println("Your input: (" + in1.toUpperCase() + ")" + " Index Returned: " + IndexingSys.indexRequest(in1));
+
 
 		kb.close();
 	}
